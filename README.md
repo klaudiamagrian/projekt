@@ -32,9 +32,18 @@
 1. Skopiuj adres URL repozytorium: https://github.com/klaudiamagrian/projekt.git
 2. Otwórz terminal i przejdź do folderu, w którym chcesz umieścić bibliotekę. Użyj poniższego polecenia, by sklonować repozytorium: git clone https://github.com/klaudiamagrian/projekt.git
 3. Wejdź do katalogu projektu, uruchom polecenie aby zainstalować wszystkie zależności wymagane przez bibliotekę: npm install
-4. Aby połączyć się z MongoDB zarejestruj się i zaloguj na konto MongoDB Altas i skonfiguruj Connection String, skopiuj go i popraw plik .env na poprawnego użytkownika oraz zmienną w pliku app.js
+4. Aby połączyć się z MongoDB zarejestruj się i zaloguj na konto MongoDB Altas i skonfiguruj Connection String, skopiuj go popraw zmienną w pliku app.js
  ``` json
 mongoose.connect(`mongodb+srv://username:password@cluster0.mongodb.net/nazwa_bazy?retryWrites=true&w=majority`)
+```
+oraz stwórz plik .env
+```json
+{
+DBD_USER = "user"
+DBD_PASSWORD = "password"
+DBD_NAME = "db_name"
+JWT_KEY = "jwt_key"
+}
 ```
 5. Odpal aplikacje poprzez npm start lub node server.js
    
