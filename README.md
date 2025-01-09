@@ -2,6 +2,9 @@
 
 ## Table of Contents
 - **[Opis aplikacji](#opis-aplikacji)**<br>
+- **[Instalacja](#instalacja)**<br>
+- **[Użycie](#uzycie)**<br>
+- **[Wymagania](#wymagania)**<br>
 - **[Funkcje](#funkcje)**<br>
   - **[Administracja](#administracja)**<br>
   - **[Użytkownicy](#uzytkownicy)**<br>
@@ -23,6 +26,30 @@
 ## Opis aplikacji
 
 **Biblioteczne API** to backendowa aplikacja do zarządzania biblioteką, która umożliwia rejestrację użytkowników, zarządzanie książkami, wypożyczeniem książek oraz administracją systemu. Aplikacja bazuje na technologii Node.js z wykorzystaniem Express i MongoDB.
+
+## Instalacja
+
+1. Skopiuj adres URL repozytorium: https://github.com/klaudiamagrian/projekt.git
+2. Otwórz terminal i przejdź do folderu, w którym chcesz umieścić bibliotekę. Użyj poniższego polecenia, by sklonować repozytorium: git clone https://github.com/klaudiamagrian/projekt.git
+3. Wejdź do katalogu projektu, uruchom polecenie aby zainstalować wszystkie zależności wymagane przez bibliotekę: npm install
+4. Aby połączyć się z MongoDB zarejestruj się i zaloguj na konto MongoDB Altas i skonfiguruj Connection String, skopiuj go i popraw plik .env na poprawnego użytkownika oraz zmienną w pliku app.js
+ ``` json
+mongoose.connect(`mongodb+srv://username:password@cluster0.mongodb.net/nazwa_bazy?retryWrites=true&w=majority`)
+```
+5. Odpal aplikacje poprzez npm start lub node server.js
+   
+
+## Uzycie
+1. Aby zalogować się jako administrator, wyślij żądanie *PUT* na /admins/login z odpowiednim emailem i hasłem (wcześniej zarejestrowanym w bazie), otrzymasz token JWT.
+2. Z użyciem tokenu JWT możesz autoryzować swoje dalsze żądania na endpointach związanych z książkami, użytkownikami oraz wypożyczeniami.
+3. Możesz dodać nowych użytkowników, książki, rejestrować wypożyczenia i śledzić zwroty książek.
+
+## Wymagania
+
+- Node.js
+- MongoDB (lub dostęp do bazy MongoDB)
+- Edytor kodu
+- Zainstalowane zależności: express, mongoose, bcrypt, jsonwebtoken, morgan, body-parser, dotenv.
 
 ### Funkcje
 
