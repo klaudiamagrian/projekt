@@ -59,7 +59,6 @@
 - **PUT** /borrowings/return - Zwróć książkę
 - **GET** /borrowings/borrowedBooks - Pobierz listę wypożyczonych książek przez użytkownika
 
-<<! 
 ### POST /admins/signup
 - Opis: Tworzenie nowego konta administratora
 - Body:
@@ -71,9 +70,8 @@
 {
     "wiadomosc": "Dodano admina"
 }
->>
 
-<<!
+
 ### PUT /admins/login
 - Opis: Logowanie administratora i uzyskanie tokenu JWT
 - Body:
@@ -85,9 +83,7 @@
 {
     "token": "jwt_token"
 }
->>
 
-<<!
 ### GET /books
 - Opis: Pobranie listy wszystkich książek
 - Response:
@@ -104,9 +100,9 @@
         ...
     ]
 }
->>
 
-<<!
+
+
 ### POST /books
 - Opis: Dodanie nowej książki (wymaga autoryzacji)
 - Body:
@@ -127,9 +123,9 @@
         "copiesAvailable": 10
     }
 }
->>
 
-<<!
+
+
 ### GET /books/:bookId
 - Opis: Pobranie szczegółów konkretnej książki
 - Response:
@@ -143,9 +139,9 @@
         "copiesAvailable": 5
     }
 }
->>
 
-<<!
+
+
 ### PUT /books/:bookId
 - Opis: Aktualizacja danych książki (wymaga autoryzacji)
 - Body:
@@ -159,18 +155,16 @@
 {
     "wiadomość": "Zmiana danych ksiązki o numerze bookId"
 }
->>
 
-<<!
+
+
 ### DELETE /books/:bookId
 - Opis: Usunięcie książki (wymaga autoryzacji)
 - Response:
 {
     "wiadomość": "Usunięcie ksiazki o numerze bookId"
 }
->>
 
-<<!
 ### POST /borrowings
 - Opis: Dodanie nowego wypożyczenia (wymaga autoryzacji)
 - Body:
@@ -189,9 +183,7 @@
         "returnDate": null
     }
 }
->>
 
-<<!
 ### PUT /borrowings/return
 - Opis: Zwrócenie książki (wymaga autoryzacji)
 - Body:
@@ -210,9 +202,7 @@
         "returnDate": "2025-01-09T13:00:00.000Z"
     }
 }
->>
 
-<<!
 ### GET /borrowings/borrowedBooks
 - Opis: Pobranie wypożyczonych książek przez użytkownika
 - Body:
@@ -230,9 +220,7 @@
         ...
     ]
 }
->>
 
-<<!
 ### GET /users
 - Opis: Pobranie listy wszystkich użytkowników (wymaga autoryzacji)
 - Response:
@@ -248,9 +236,7 @@
         ...
     ]
 }
->>
 
-<<!
 ### POST /users
 - Opis: Dodanie nowego użytkownika (wymaga autoryzacji)
 - Body:
@@ -269,9 +255,7 @@
         "borrowedBooks": []
     }
 }
->>
 
-<<!
 ### GET /users/:userId
 - Opis: Pobranie szczegółów użytkownika (wymaga autoryzacji)
 - Response:
@@ -284,9 +268,7 @@
         "borrowedBooks": ["Book Title 1", "Book Title 2"]
     }
 }
->>
 
-<<!
 ### PUT /users/:userId
 - Opis: Aktualizacja danych użytkownika (wymaga autoryzacji)
 - Body:
@@ -299,14 +281,12 @@
 {
     "wiadomość": "Zmiana danych uzytkownika o numerze userId"
 }
->>
 
-<<!
 ### DELETE /users/:userId
 - Opis: Usunięcie użytkownika (wymaga autoryzacji)
 - Response:
 {
     "wiadomość": "Usunięcie uzytkownika o numerze userId"
 }
->>
+
 
