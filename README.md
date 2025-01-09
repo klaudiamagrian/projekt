@@ -365,3 +365,61 @@
 ```
 
 ---
+
+### GET /users/:userId
+
+- **Opis:** Pobranie szczegółów użytkownika (wymaga autoryzacji)
+
+**Response:**
+
+```json
+{
+    "wiadomość": "Szczegóły uzytkownika o numerze userId",
+    "dane": {
+        "_id": "user_id",
+        "name": "User Name",
+        "email": "user@example.com",
+        "borrowedBooks": ["Book Title 1", "Book Title 2"]
+    }
+}
+```
+
+---
+
+### PUT /users/:userId
+
+- **Opis:** Aktualizacja danych użytkownika (wymaga autoryzacji)
+
+**Body:**
+
+```json
+{
+    "name": "Updated User",
+    "email": "updateduser@example.com",
+    "borrowedBooks": ["Updated Book Title"]
+}
+```
+
+**Response:**
+
+```json
+{
+    "wiadomość": "Zmiana danych uzytkownika o numerze userId"
+}
+```
+
+---
+
+### DELETE /users/:userId
+
+- **Opis:** Usunięcie użytkownika (wymaga autoryzacji)
+
+**Response:**
+
+```json
+{
+    "wiadomość": "Usunięcie uzytkownika o numerze userId"
+}
+```
+
+---
