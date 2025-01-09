@@ -2,7 +2,7 @@
 
 ## Opis
 
-**Biblioteczne API** to backendowa aplikacja do zarządzania biblioteką, która umożliwia rejestrację użytkowników, zarządzanie książkami, wypożyczaniem książek oraz administracją systemu. Aplikacja bazuje na technologii Node.js z wykorzystaniem Express i MongoDB.
+**Biblioteczne API** to backendowa aplikacja do zarządzania biblioteką, która umożliwia rejestrację użytkowników, zarządzanie książkami, wypożyczeniem książek oraz administracją systemu. Aplikacja bazuje na technologii Node.js z wykorzystaniem Express i MongoDB.
 
 ### Funkcje
 
@@ -59,6 +59,7 @@
 - **PUT** /borrowings/return - Zwróć książkę
 - **GET** /borrowings/borrowedBooks - Pobierz listę wypożyczonych książek przez użytkownika
 
+
 ### POST /admins/signup
 - Opis: Tworzenie nowego konta administratora
 - Body:
@@ -70,7 +71,6 @@
 {
     "wiadomosc": "Dodano admina"
 }
-
 
 ### PUT /admins/login
 - Opis: Logowanie administratora i uzyskanie tokenu JWT
@@ -101,8 +101,6 @@
     ]
 }
 
-
-
 ### POST /books
 - Opis: Dodanie nowej książki (wymaga autoryzacji)
 - Body:
@@ -124,8 +122,6 @@
     }
 }
 
-
-
 ### GET /books/:bookId
 - Opis: Pobranie szczegółów konkretnej książki
 - Response:
@@ -140,8 +136,6 @@
     }
 }
 
-
-
 ### PUT /books/:bookId
 - Opis: Aktualizacja danych książki (wymaga autoryzacji)
 - Body:
@@ -155,8 +149,6 @@
 {
     "wiadomość": "Zmiana danych ksiązki o numerze bookId"
 }
-
-
 
 ### DELETE /books/:bookId
 - Opis: Usunięcie książki (wymaga autoryzacji)
@@ -288,5 +280,3 @@
 {
     "wiadomość": "Usunięcie uzytkownika o numerze userId"
 }
-
-
