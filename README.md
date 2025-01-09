@@ -37,10 +37,12 @@
 ## API Endpoints
 
 ### Admini
+
 - **POST** /admins/signup - Rejestracja nowego administratora
 - **PUT** /admins/login - Logowanie administratora i uzyskiwanie tokenu JWT
 
 ### Użytkownicy
+
 - **GET** /users - Pobierz listę wszystkich użytkowników
 - **POST** /users - Dodaj nowego użytkownika
 - **GET** /users/:userId - Pobierz szczegóły użytkownika
@@ -48,45 +50,74 @@
 - **DELETE** /users/:userId - Usuń użytkownika
 
 ### Książki
+
 - **GET** /books - Pobierz listę wszystkich książek
-- **POST** /books - Dodaj nową książkę (autoryzacja wymagania)
+- **POST** /books - Dodaj nową książkę (autoryzacja wymagana)
 - **GET** /books/:bookId - Pobierz szczegóły książki
 - **PUT** /books/:bookId - Zaktualizuj książkę
 - **DELETE** /books/:bookId - Usuń książkę
 
 ### Wypożyczenia
+
 - **POST** /borrowings - Dodaj wypożyczenie książki
 - **PUT** /borrowings/return - Zwróć książkę
 - **GET** /borrowings/borrowedBooks - Pobierz listę wypożyczonych książek przez użytkownika
 
+---
 
 ### POST /admins/signup
-- Opis: Tworzenie nowego konta administratora
-- Body:
+
+- **Opis:** Tworzenie nowego konta administratora
+
+**Body:**
+
+```json
 {
     "email": "admin@example.com",
     "password": "securePassword"
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomosc": "Dodano admina"
 }
+```
+
+---
 
 ### PUT /admins/login
-- Opis: Logowanie administratora i uzyskanie tokenu JWT
-- Body:
+
+- **Opis:** Logowanie administratora i uzyskanie tokenu JWT
+
+**Body:**
+
+```json
 {
     "email": "admin@example.com",
     "password": "securePassword"
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "token": "jwt_token"
 }
+```
+
+---
 
 ### GET /books
-- Opis: Pobranie listy wszystkich książek
-- Response:
+
+- **Opis:** Pobranie listy wszystkich książek
+
+**Response:**
+
+```json
 {
     "wiadomość": "lista wszystkich ksiązek",
     "lista": [
@@ -96,21 +127,31 @@
             "author": "Book Author",
             "genre": "Book Genre",
             "copiesAvailable": 5
-        },
-        ...
+        }
     ]
 }
+```
+
+---
 
 ### POST /books
-- Opis: Dodanie nowej książki (wymaga autoryzacji)
-- Body:
+
+- **Opis:** Dodanie nowej książki (wymaga autoryzacji)
+
+**Body:**
+
+```json
 {
     "title": "New Book Title",
     "author": "New Book Author",
     "genre": "New Genre",
     "copiesAvailable": 10
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomość": "dodanie nowej ksiazki",
     "dane": {
@@ -121,10 +162,17 @@
         "copiesAvailable": 10
     }
 }
+```
+
+---
 
 ### GET /books/:bookId
-- Opis: Pobranie szczegółów konkretnej książki
-- Response:
+
+- **Opis:** Pobranie szczegółów konkretnej książki
+
+**Response:**
+
+```json
 {
     "wiadomość": "Szczegóły ksiązki o numerze bookId",
     "dane": {
@@ -135,36 +183,65 @@
         "copiesAvailable": 5
     }
 }
+```
+
+---
 
 ### PUT /books/:bookId
-- Opis: Aktualizacja danych książki (wymaga autoryzacji)
-- Body:
+
+- **Opis:** Aktualizacja danych książki (wymaga autoryzacji)
+
+**Body:**
+
+```json
 {
     "title": "Updated Book Title",
     "author": "Updated Book Author",
     "genre": "Updated Genre",
     "copiesAvailable": 8
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomość": "Zmiana danych ksiązki o numerze bookId"
 }
+```
+
+---
 
 ### DELETE /books/:bookId
-- Opis: Usunięcie książki (wymaga autoryzacji)
-- Response:
+
+- **Opis:** Usunięcie książki (wymaga autoryzacji)
+
+**Response:**
+
+```json
 {
     "wiadomość": "Usunięcie ksiazki o numerze bookId"
 }
+```
+
+---
 
 ### POST /borrowings
-- Opis: Dodanie nowego wypożyczenia (wymaga autoryzacji)
-- Body:
+
+- **Opis:** Dodanie nowego wypożyczenia (wymaga autoryzacji)
+
+**Body:**
+
+```json
 {
     "bookId": "book_id",
     "userId": "user_id"
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomość": "Dodano nowe wypożyczenie",
     "dane": {
@@ -175,15 +252,26 @@
         "returnDate": null
     }
 }
+```
+
+---
 
 ### PUT /borrowings/return
-- Opis: Zwrócenie książki (wymaga autoryzacji)
-- Body:
+
+- **Opis:** Zwrócenie książki (wymaga autoryzacji)
+
+**Body:**
+
+```json
 {
     "bookId": "book_id",
     "userId": "user_id"
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomość": "Książka zwrócona",
     "dane": {
@@ -194,28 +282,45 @@
         "returnDate": "2025-01-09T13:00:00.000Z"
     }
 }
+```
+
+---
 
 ### GET /borrowings/borrowedBooks
-- Opis: Pobranie wypożyczonych książek przez użytkownika
-- Body:
+
+- **Opis:** Pobranie wypożyczonych książek przez użytkownika
+
+**Body:**
+
+```json
 {
     "userName": "user_name"
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomość": "Książki wypożyczone przez użytkownika user_name",
     "książki": [
         {
             "title": "Book Title",
             "author": "Book Author"
-        },
-        ...
+        }
     ]
 }
+```
+
+---
 
 ### GET /users
-- Opis: Pobranie listy wszystkich użytkowników (wymaga autoryzacji)
-- Response:
+
+- **Opis:** Pobranie listy wszystkich użytkowników (wymaga autoryzacji)
+
+**Response:**
+
+```json
 {
     "wiadomość": "lista wszystkich uzytkownikow",
     "lista": [
@@ -224,20 +329,30 @@
             "name": "User Name",
             "email": "user@example.com",
             "borrowedBooks": ["Book Title 1", "Book Title 2"]
-        },
-        ...
+        }
     ]
 }
+```
+
+---
 
 ### POST /users
-- Opis: Dodanie nowego użytkownika (wymaga autoryzacji)
-- Body:
+
+- **Opis:** Dodanie nowego użytkownika (wymaga autoryzacji)
+
+**Body:**
+
+```json
 {
     "name": "New User",
     "email": "newuser@example.com",
     "borrowedBooks": []
 }
-- Response:
+```
+
+**Response:**
+
+```json
 {
     "wiadomość": "utworzenie nowego uzytkownika",
     "dane": {
@@ -247,36 +362,6 @@
         "borrowedBooks": []
     }
 }
+```
 
-### GET /users/:userId
-- Opis: Pobranie szczegółów użytkownika (wymaga autoryzacji)
-- Response:
-{
-    "wiadomość": "Szczegóły uzytkownika o numerze userId",
-    "dane": {
-        "_id": "user_id",
-        "name": "User Name",
-        "email": "user@example.com",
-        "borrowedBooks": ["Book Title 1", "Book Title 2"]
-    }
-}
-
-### PUT /users/:userId
-- Opis: Aktualizacja danych użytkownika (wymaga autoryzacji)
-- Body:
-{
-    "name": "Updated User",
-    "email": "updateduser@example.com",
-    "borrowedBooks": ["Updated Book Title"]
-}
-- Response:
-{
-    "wiadomość": "Zmiana danych uzytkownika o numerze userId"
-}
-
-### DELETE /users/:userId
-- Opis: Usunięcie użytkownika (wymaga autoryzacji)
-- Response:
-{
-    "wiadomość": "Usunięcie uzytkownika o numerze userId"
-}
+---
