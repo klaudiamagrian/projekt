@@ -1,27 +1,47 @@
 # Biblioteczne API - Backend
 
-## Opis
+## Table of Contents
+- **[Opis aplikacji](#opis-aplikacji)**<br>
+- **[Funkcje](#funkcje)**<br>
+  - **[Administracja](#administracja)**<br>
+  - **[Użytkownicy](#uzytkownicy)**<br>
+  - **[Książki](#ksiazki)**<br>
+  - **[Wypożyczenia](#wypozyczenia)**<br>
+- **[Technologie](#technologie)**<br>
+- **[API Endpoints](#api-endpoints)**<br>
+  - **[Admini](#admini)**<br>
+  - **[Użytkownicy](#uzytkownicy)**<br>
+  - **[Książki](#ksiazki)**<br>
+  - **[Wypożyczenia](#wypozyczenia)**<br>
+- **[Szczegóły endpointów](#szczegoly-endpointow)**<br>
+  - **[Admini](#admini)**<br>
+  - **[Książki](#ksiazki)**<br>
+  - **[Wypożyczenia](#wypozyczenia)**<br>
+  - **[Użytkownicy](#uzytkownicy)**<br>
+
+
+## Opis aplikacji
 
 **Biblioteczne API** to backendowa aplikacja do zarządzania biblioteką, która umożliwia rejestrację użytkowników, zarządzanie książkami, wypożyczeniem książek oraz administracją systemu. Aplikacja bazuje na technologii Node.js z wykorzystaniem Express i MongoDB.
 
 ### Funkcje
 
-- **Administracja**
+- ### Administracja
   - Rejestracja nowych administratorów
   - Logowanie i autoryzacja administratorów za pomocą JWT
-- **Użytkownicy**
+- ### Uzytkownicy
   - Dodawanie nowych użytkowników
   - Edycja danych użytkowników
   - Usuwanie użytkowników
   - Pobieranie listy użytkowników oraz szczegółów o konkretnym użytkowniku
   - Wypożyczanie książek i śledzenie historii wypożyczeń
-- **Książki**
+- ### Ksiazki
   - Dodawanie nowych książek do biblioteki
   - Edycja książek
   - Usuwanie książek
   - Pobieranie szczegółów o książkach
   - Sprawdzanie dostępnych książek
-- **Wypożyczenia**
+- ### Wypozyczenia
   - Rejestrowanie wypożyczeń książek
   - Zwrot książek
   - Śledzenie wypożyczeń na poziomie użytkownika
@@ -41,7 +61,7 @@
 - **POST** /admins/signup - Rejestracja nowego administratora
 - **PUT** /admins/login - Logowanie administratora i uzyskiwanie tokenu JWT
 
-### Użytkownicy
+### Uzytkownicy
 
 - **GET** /users - Pobierz listę wszystkich użytkowników
 - **POST** /users - Dodaj nowego użytkownika
@@ -49,7 +69,7 @@
 - **PUT** /users/:userId - Zaktualizuj dane użytkownika
 - **DELETE** /users/:userId - Usuń użytkownika
 
-### Książki
+### Ksiazki
 
 - **GET** /books - Pobierz listę wszystkich książek
 - **POST** /books - Dodaj nową książkę (autoryzacja wymagana)
@@ -57,15 +77,16 @@
 - **PUT** /books/:bookId - Zaktualizuj książkę
 - **DELETE** /books/:bookId - Usuń książkę
 
-### Wypożyczenia
+### Wypozyczenia
 
 - **POST** /borrowings - Dodaj wypożyczenie książki
 - **PUT** /borrowings/return - Zwróć książkę
 - **GET** /borrowings/borrowedBooks - Pobierz listę wypożyczonych książek przez użytkownika
 
 ---
-
-### POST /admins/signup
+## Szczegoly endpointow
+### Admini
+#### POST /admins/signup
 
 - **Opis:** Tworzenie nowego konta administratora
 
@@ -88,7 +109,7 @@
 
 ---
 
-### PUT /admins/login
+#### PUT /admins/login
 
 - **Opis:** Logowanie administratora i uzyskanie tokenu JWT
 
@@ -111,7 +132,8 @@
 
 ---
 
-### GET /books
+### Ksiazki
+#### GET /books
 
 - **Opis:** Pobranie listy wszystkich książek
 
@@ -134,7 +156,7 @@
 
 ---
 
-### POST /books
+#### POST /books
 
 - **Opis:** Dodanie nowej książki (wymaga autoryzacji)
 
@@ -166,7 +188,7 @@
 
 ---
 
-### GET /books/:bookId
+#### GET /books/:bookId
 
 - **Opis:** Pobranie szczegółów konkretnej książki
 
@@ -187,7 +209,7 @@
 
 ---
 
-### PUT /books/:bookId
+#### PUT /books/:bookId
 
 - **Opis:** Aktualizacja danych książki (wymaga autoryzacji)
 
@@ -212,7 +234,7 @@
 
 ---
 
-### DELETE /books/:bookId
+#### DELETE /books/:bookId
 
 - **Opis:** Usunięcie książki (wymaga autoryzacji)
 
@@ -226,7 +248,8 @@
 
 ---
 
-### POST /borrowings
+### Wypozyczenia
+#### POST /borrowings
 
 - **Opis:** Dodanie nowego wypożyczenia (wymaga autoryzacji)
 
@@ -256,7 +279,7 @@
 
 ---
 
-### PUT /borrowings/return
+#### PUT /borrowings/return
 
 - **Opis:** Zwrócenie książki (wymaga autoryzacji)
 
@@ -286,7 +309,7 @@
 
 ---
 
-### GET /borrowings/borrowedBooks
+#### GET /borrowings/borrowedBooks
 
 - **Opis:** Pobranie wypożyczonych książek przez użytkownika
 
@@ -314,7 +337,8 @@
 
 ---
 
-### GET /users
+###Uzytkownicy
+#### GET /users
 
 - **Opis:** Pobranie listy wszystkich użytkowników (wymaga autoryzacji)
 
@@ -336,7 +360,7 @@
 
 ---
 
-### POST /users
+#### POST /users
 
 - **Opis:** Dodanie nowego użytkownika (wymaga autoryzacji)
 
@@ -366,7 +390,7 @@
 
 ---
 
-### GET /users/:userId
+#### GET /users/:userId
 
 - **Opis:** Pobranie szczegółów użytkownika (wymaga autoryzacji)
 
@@ -386,7 +410,7 @@
 
 ---
 
-### PUT /users/:userId
+#### PUT /users/:userId
 
 - **Opis:** Aktualizacja danych użytkownika (wymaga autoryzacji)
 
@@ -410,7 +434,7 @@
 
 ---
 
-### DELETE /users/:userId
+#### DELETE /users/:userId
 
 - **Opis:** Usunięcie użytkownika (wymaga autoryzacji)
 
