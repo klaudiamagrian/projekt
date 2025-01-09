@@ -34,7 +34,7 @@
 3. Wejdź do katalogu projektu, uruchom polecenie aby zainstalować wszystkie zależności wymagane przez bibliotekę: npm install
 4. Aby połączyć się z MongoDB zarejestruj się i zaloguj na konto MongoDB Altas i skonfiguruj Connection String, skopiuj go popraw zmienną w pliku app.js
  ``` json
-mongoose.connect(`mongodb+srv://username:password@cluster0.mongodb.net/nazwa_bazy?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://username:password@cluster0.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
 ```
 oraz stwórz plik .env
 ```json
