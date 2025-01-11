@@ -1,5 +1,5 @@
 # Biblioteczne API - Backend
-
+##### Autorzy: Klaudia Magrian, Amelia Kogutowska
 ## Table of Contents
 - **[Opis aplikacji](#opis-aplikacji)**<br>
 - **[Instalacja](#instalacja)**<br>
